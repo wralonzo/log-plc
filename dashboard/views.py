@@ -19,7 +19,7 @@ def dashboard(request):
     context = {'name': 'World'} 
     asunto = 'Alerta de correo'
     mensaje = 'Se ha realizo una accion en PLC tal'
-    destinatarios = ['williamalonzo4519@gmail.com']
+    destinatarios = ['test@gmail.com', 'test@gmail.com', 'test@gmail.com']
     # enviar_correo(asunto, mensaje, destinatarios)
     # Pass data to the template
     return render(request, 'dashboard/home.html', context)
