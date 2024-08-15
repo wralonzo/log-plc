@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 def login_view(request):
@@ -16,3 +17,8 @@ def authLogin(request):
             login(request, user)
             return redirect('/dashboard')
     return redirect('/') 
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Sesión cerrada correctamente')
+    return redirect('/')

@@ -17,5 +17,5 @@ class Logger(models.Model):
     
     class Meta:
         ordering = ['-equipmentId']
-        verbose_name = 'Equipo'
-        verbose_name_plural = 'Equipos'
+        verbose_name = 'Lecturas'
+        verbose_name_plural = 'Lecturas'
