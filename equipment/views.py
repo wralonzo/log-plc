@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+
+from equipment.forms import DeviceCreateForm, SensorCreateForm
 from . import models
 
 # Create your views here.
@@ -13,7 +15,14 @@ def displayPlc(request):
 # Create your views here.
 @login_required(login_url='login')
 def resgistePlc(request):
-    pass
+    if request.method == 'POST':
+        form = DeviceCreateForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('plcdisplay')  # Redirect to a user list view
+    else:
+        form = DeviceCreateForm()
+    return render(request, 'catalog/device/register.html', {'form': form})
 
 # Create your views here.
 @login_required(login_url='login')
@@ -30,7 +39,15 @@ def displaySensor(request):
 # Create your views here.
 @login_required(login_url='login')
 def resgisteSensor(request):
-    pass
+    if request.method == 'POST':
+        form = SensorCreateForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('sensordisplay')  # Redirect to a user list view
+    else:
+        form = SensorCreateForm()
+    return render(request, 'catalog/sensor/register.html', {'form': form})
+
 
 # Create your views here.
 @login_required(login_url='login')

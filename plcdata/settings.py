@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'plcdata.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'plc',  # Replace with your database name
+        'NAME': 'plc2',  # Replace with your database name
         'USER': 'root',  # Replace with your MySQL username
         'PASSWORD': '',  # Replace with your MySQL password
         'HOST': '127.0.0.1',  # Replace with your MySQL host
@@ -130,8 +130,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'es'
-
 TIME_ZONE = 'America/Guatemala'
 
 USE_I18N = True
@@ -157,3 +155,14 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'invoicerenergy@gmail.com'
 EMAIL_HOST_PASSWORD = 'egba adpy aysl bakg'
 EMAIL_USE_TLS  = True
+
+LANGUAGE_CODE = 'es-es'
+
+
+
+PERMISSION_TRANSLATIONS = {
+    'add_logentry': 'Agregar Log',
+    'change_logentry': 'Modificar Log',
+    'delete_logentry': 'Eliminar Log',
+    'view_logentry': 'Ver Log',
+}

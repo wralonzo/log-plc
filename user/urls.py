@@ -20,6 +20,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('user/display', views.display, name='display'),
+    path('user/display', views.display, name='display-user'),
+    path('user/register/', views.register, name='register'),
 
 ]
