@@ -10,6 +10,10 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdn.datatables.net/2.1.5/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div>
@@ -30,7 +34,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="{% url 'dashboard' %}"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'display-user' %}">Usuarios</a>
@@ -46,16 +55,38 @@
                   Cátalogo
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'plcdisplay' %}">PLC</a></li>
-                  <li><a class="dropdown-item" href="{% url 'sensordisplay' %}">Sensor</a></li>
-                  <li><a class="dropdown-item" href="{% url 'equipmentdisplay' %}">Equipo</a></li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'plcdisplay' %}"
+                      >PLC</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'sensordisplay' %}"
+                      >Sensor</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'equipmentdisplay' %}"
+                      >Equipo</a
+                    >
+                  </li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a class="dropdown-item" href="{% url 'failuredisplay' %}">Tipo de anomalia</a>
+                    <a class="dropdown-item" href="{% url 'failuredisplay' %}"
+                      >Tipo de anomalia</a
+                    >
                   </li>
-                  <li><a class="dropdown-item" href="{% url 'groupdisplay' %}">Grupos</a></li>
                   <li>
-                    <a class="dropdown-item" href="{% url 'groupalertdisplay' %}">Grupos para alertas</a>
+                    <a class="dropdown-item" href="{% url 'groupdisplay' %}"
+                      >Grupos</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="{% url 'groupalertdisplay' %}"
+                      >Grupos para alertas</a
+                    >
                   </li>
                 </ul>
               </li>
@@ -64,9 +95,14 @@
               </li>
             </ul>
             <div class="d-flex" role="search">
-              <a href="{% url 'logout' %}" class="btn btn-outline-white">Cerrar sesión</a>
+              <a href="{% url 'logout' %}" class="btn btn-outline-white"
+                >Cerrar sesión</a
+              >
             </div>
           </div>
         </div>
       </nav>
-      <main class="container mt-4">
+      <main class="container mt-4"></main>
+    </div>
+  </body>
+</html>

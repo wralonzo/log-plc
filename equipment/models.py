@@ -33,7 +33,7 @@ class Sensor(models.Model):
 class Equipment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     name = models.CharField(verbose_name="Nombre del equipo", max_length=100)
-    sensorId = models.ForeignKey(Device,on_delete=models.CASCADE, verbose_name="Sensor asociado", max_length=100)
+    sensorId = models.ForeignKey(Sensor,on_delete=models.CASCADE, verbose_name="Sensor asociado", max_length=100)
     
     def __str__(self):
         return self.name

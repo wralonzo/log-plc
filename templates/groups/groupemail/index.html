@@ -4,20 +4,34 @@
   <div class="col-auto">
     <h1>Lista de Usuarios en grupos de emails</h1>
     <a href="groupalertregister" class="btn btn-outline-success ">Registrar</a>
-    <table class="table table-dark table-striped-columns mt-4">
+    <table class="table table-dark table-striped-columns mt-4" id="myTable">
       <thead>
         <tr>
             <td>Id</td>
+            <td>Key</td>
+            <td>Usuario</td>
+            <td>Falla</td>
         </tr>
       </thead>
       <tbody>
         {% for usuario in data %}
         <tr>
           <td>{{ usuario.id }}</td>
+          <td>{{ usuario.key }}</td>
+          <td>{{ usuario.userId }}</td>
+          <td>{{ usuario.failuteId }}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-    {% include '../../dashboard/footer.html' %}
   </div>
 </div>
+
+{% include '../../dashboard/footer.html' %}
+<script>
+  $(document).ready(function () {
+    $("#myTable").DataTable({
+      colReorder: true,
+    });
+  });
+</script>
