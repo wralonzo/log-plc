@@ -1,5 +1,5 @@
 from django import forms
-from equipment.models import Device, Sensor
+from equipment.models import Device, Equipment, Sensor
 
 class DeviceCreateForm(forms.ModelForm):
     name = forms.CharField(required=True,
@@ -25,4 +25,15 @@ class SensorCreateForm(forms.ModelForm):
         }
     class Meta:
         model = Sensor
+        fields = '__all__'
+        
+class EquipmentCreateForm(forms.ModelForm):
+    name = forms.CharField(required=True,
+                                label="Nombre del equipo *",
+                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el nombre'}))
+    widgets = {
+            'sensorId': forms.Select(attrs={'class': 'form-control'}),
+        }
+    class Meta:
+        model = Equipment
         fields = '__all__'

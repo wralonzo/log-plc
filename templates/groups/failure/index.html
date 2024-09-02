@@ -2,24 +2,18 @@
 
 <div class="row justify-content-center">
   <div class="col-auto">
-    <h1>Lista de Usuarios registrados</h1>
-    <a href="register" class="btn btn-outline-success ">Registrar</a>
+    <h1>Lista de fallas</h1>
+    <a href="failureregister" class="btn btn-outline-success">Registrar</a>
     <table class="table table-dark table-striped-columns mt-4">
       <thead>
         <tr>
-            <td>Id</td>
-            <td>Usuario</td>
-            <td>Correo</td>
-            <td>Direccion</td>
+          <td>Id</td>
         </tr>
       </thead>
       <tbody>
-        {% for usuario in usuarios %}
+        {% for usuario in data %}
         <tr>
           <td>{{ usuario.id }}</td>
-          <td>{{ usuario.username }}</td>
-          <td>{{ usuario.email }}</td>
-          <td>{{ usuario.address }}</td>
         </tr>
         {% endfor %}
       </tbody>

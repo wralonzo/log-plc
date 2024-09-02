@@ -15,16 +15,4 @@ urlpatterns = [
     path('equipmentdisplay', views.displayEquipment, name='equipmentdisplay'),
     path('equipmentregister', views.resgisteEquipment, name='equipmentregister'),
     path('equipmentdelete', views.deletePlc, name='equipmentdelete'),
-    
-    path('failuredisplay', views.displayPlc, name='failuredisplay'),
-    path('failureregister', views.resgistePlc, name='failureregister'),
-    path('failuredelete', views.deletePlc, name='failuredelete'),
-    
-    path('groupdisplay', views.displayPlc, name='groupdisplay'),
-    path('groupregister', views.resgistePlc, name='groupregister'),
-    path('groupdelete', views.deletePlc, name='groupdelete'),
-    
-    path('groupalertdisplay', views.displayPlc, name='groupalertdisplay'),
-    path('groupalertregister', views.resgistePlc, name='groupalertregister'),
-    path('groupalertdelete', views.deletePlc, name='groupalertdelete'),
 ]
