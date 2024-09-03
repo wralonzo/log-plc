@@ -1,0 +1,126 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title">Logs por tipo de falla</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title">Sensores</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="myChartSensor"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title">Maquinarias</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="myChartE"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- logs -->
+<script>
+  // Pass Django context data to JavaScript variables
+  const labels = {{ labelsFalla|safe }};
+  const data = {{ dataFalla|safe }};
+
+  // Create the chart
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar', // You can also use 'line', 'pie', etc.
+      data: {
+          labels: labels, // X-axis labels
+          datasets: [{
+              label: 'Falla',
+              data: data, // Data points
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+</script>
+
+<!-- Sensor -->
+<script>
+    // Pass Django context data to JavaScript variables
+    const labelsS = {{ labelsSensor|safe }};
+    const dataS = {{ dataSensor|safe }};
+  
+    // Create the chart
+    var ctx = document.getElementById('myChartSensor').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar', // You can also use 'line', 'pie', etc.
+        data: {
+            labels: labelsS, // X-axis labels
+            datasets: [{
+                label: 'Sensor',
+                data: dataS, // Data points
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+  </script>
+
+
+
+<!-- Maquinaria -->
+<script>
+    // Pass Django context data to JavaScript variables
+    const labelsE = {{ labelsE|safe }};
+    const dataE = {{ dataE|safe }};
+  
+    // Create the chart
+    var ctx = document.getElementById('myChartE').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar', // You can also use 'line', 'pie', etc.
+        data: {
+            labels: labelsE, // X-axis labels
+            datasets: [{
+                label: 'Maquinaria',
+                data: dataE, // Data points
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+  </script>

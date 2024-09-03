@@ -21,5 +21,7 @@ from . import views
 
 urlpatterns = [
     path('dashboard', views.dashboard, name='dashboard'),
+    # path('countLog', views.getLogs, name='count'),
+     path('api/graph-data/', views.getLogs, name='graph-data'),
 
 ]
