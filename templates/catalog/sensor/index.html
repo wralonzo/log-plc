@@ -10,6 +10,7 @@
             <td>Id</td>
             <td>Nombre</td>
             <td>PLC asociado</td>
+            <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -17,7 +18,14 @@
         <tr>
           <td>{{ usuario.id }}</td>
           <td>{{ usuario.name }}</td>
-          <td>{{ usuario.deviceId }}</td>
+          <td>{{ usuario.deviceId.name }}</td>
+          <td>
+            <a class="btn btn-success" href="{% url 'sensorupdate' usuario.id %}"
+              >Actualizar</a
+            >
+            <a class="btn btn-danger" href="{% url 'sensordelete' usuario.id %}"
+              >Eliminar</a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>

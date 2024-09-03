@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import PermissionForm, UserForm
+
+from user.forms import EditForm, UserForm
 
 # Create your views here.
 @login_required(login_url='login')
@@ -31,3 +32,29 @@ def register(request):
     else:
         form = UserForm()
     return render(request, 'user/register.html', {'form': form})
+
+
+@login_required(login_url='login')
+def update(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    
+    if request.method == 'POST':
+        form = EditForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            # Optionally, add a success message
+            return redirect('display-user')  # Redirect to the user's detail page
+    else:
+        form = EditForm(instance=user)
+    
+    return render(request, 'user/update.html', {'form': form})
+
+@login_required(login_url='login')
+def delete(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    
+    if user.delete():
+            # Optionally, add a success message
+        return redirect('display-user')  # Redirect to the user's detail page
+    else:
+        return redirect('display-user')

@@ -3,12 +3,14 @@
 <div class="row justify-content-center">
   <div class="col-auto">
     <h1>Lista de grupos</h1>
-    <a href="groupregister" class="btn btn-outline-success ">Registrar</a>
+    <a href="groupregister" class="btn btn-outline-success">Registrar</a>
     <table class="table table-dark table-striped-columns mt-4" id="myTable">
       <thead>
         <tr>
-            <td>Id</td>
-            <td>Nombre</td>
+          <td>Id</td>
+          <td>Nombre</td>
+          <td>Key</td>
+          <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +18,15 @@
         <tr>
           <td>{{ usuario.id }}</td>
           <td>{{ usuario.name }}</td>
+          <td>{{ usuario.key }}</td>
+          <td>
+            <a class="btn btn-success" href="{% url 'groupupdate' usuario.id %}"
+              >Actualizar</a
+            >
+            <a class="btn btn-danger" href="{% url 'groupdelete' usuario.id %}"
+              >Eliminar</a
+            >
+          </td>
         </tr>
         {% endfor %}
       </tbody>

@@ -11,6 +11,7 @@
             <td>Nombre</td>
             <td>Ubicación</td>
             <td>Encargado</td>
+            <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,14 @@
           <td>{{ usuario.name }}</td>
           <td>{{ usuario.location }}</td>
           <td>{{ usuario.encargado }}</td>
+          <td>
+            <a class="btn btn-success" href="{% url 'plcupdate' usuario.id %}"
+              >Actualizar</a
+            >
+            <a class="btn btn-danger" href="{% url 'plcdelete' usuario.id %}"
+              >Eliminar</a
+            >
+          </td>
         </tr>
         {% endfor %}
       </tbody>

@@ -9,8 +9,10 @@
         <tr>
             <td>Id</td>
             <td>Key</td>
+            <td>grupo</td>
             <td>Usuario</td>
             <td>Falla</td>
+            <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -18,8 +20,17 @@
         <tr>
           <td>{{ usuario.id }}</td>
           <td>{{ usuario.key }}</td>
-          <td>{{ usuario.userId }}</td>
-          <td>{{ usuario.failuteId }}</td>
+          <td>{{ usuario.groupId.name }}</td>
+          <td>{{ usuario.userId.first_name }} {{ usuario.userId.last_name }}</td>
+          <td>{{ usuario.failuteId.name }}</td>
+          <td>
+            <a class="btn btn-success" href="{% url 'groupalertupdate' usuario.id %}"
+              >Actualizar</a
+            >
+            <a class="btn btn-danger" href="{% url 'groupalertdelete' usuario.id %}"
+              >Eliminar</a
+            >
+          </td>
         </tr>
         {% endfor %}
       </tbody>

@@ -19,17 +19,31 @@ def resgistePlc(request):
         form = DeviceCreateForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('plcdisplay')  # Redirect to a user list view
+            return redirect('plcdisplay')
     else:
         form = DeviceCreateForm()
     return render(request, 'catalog/device/register.html', {'form': form})
 
-# Create your views here.
 @login_required(login_url='login')
-def deletePlc(request):
-    pass
-
-# Create your views here.
+def editPlc(request, idR):
+    data = models.Device.objects.get(id=idR)
+    if request.method == 'POST':
+        form = DeviceCreateForm(request.POST, instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect('plcdisplay')
+    else:
+        form = DeviceCreateForm(instance=data)
+    return render(request, 'catalog/device/update.html', {'form': form})
+    
+@login_required(login_url='login')
+def deletePlc(request, idR):
+    data = models.Device.objects.get(id=idR)
+    if data.delete():
+        return redirect('plcdisplay')
+    else:
+        return redirect('plcdisplay')
+    
 # Sensor
 @login_required(login_url='login')
 def displaySensor(request):
@@ -43,16 +57,30 @@ def resgisteSensor(request):
         form = SensorCreateForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('sensordisplay')  # Redirect to a user list view
+            return redirect('sensordisplay')
     else:
         form = SensorCreateForm()
     return render(request, 'catalog/sensor/register.html', {'form': form})
 
-
-# Create your views here.
 @login_required(login_url='login')
-def deleteSensor(request):
-    pass
+def updateSensor(request, idR):
+    data = models.Sensor.objects.get(id=idR)
+    if request.method == 'POST':
+        form = SensorCreateForm(request.POST, instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect('sensordisplay')
+    else:
+        form = SensorCreateForm(instance=data)
+    return render(request, 'catalog/sensor/update.html', {'form': form})
+
+@login_required(login_url='login')
+def deleteSensor(request, idR):
+    data = models.Sensor.objects.get(id=idR)
+    if data.delete():
+        return redirect('sensordisplay')
+    else:
+        return redirect('sensordisplay')
 
 # Create your views here.
 # Equipo
@@ -68,15 +96,32 @@ def resgisteEquipment(request):
         form = EquipmentCreateForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('equipmentdisplay')  # Redirect to a user list view
+            return redirect('equipmentdisplay')
     else:
         form = EquipmentCreateForm()
     return render(request, 'catalog/equipment/register.html', {'form': form})
 
 # Create your views here.
 @login_required(login_url='login')
-def deleteEquipment(request):
-    pass
+def updateEquipment(request, idR):
+    data = models.Equipment.objects.get(id=idR)
+    if request.method == 'POST':
+        form = EquipmentCreateForm(request.POST, instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect('equipmentdisplay')
+    else:
+        form = EquipmentCreateForm(instance=data)
+    return render(request, 'catalog/equipment/update.html', {'form': form})
+
+
+@login_required(login_url='login')
+def deleteEquipment(request, idR):
+    data = models.Equipment.objects.get(id=idR)
+    if data.delete():
+        return redirect('equipmentdisplay')
+    else:
+        return redirect('equipmentdisplay')
 
 
 
