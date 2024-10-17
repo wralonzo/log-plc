@@ -15,12 +15,23 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% load static %}
   </head>
   <body>
     <div>
-      <nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
+      <nav class="navbar  navbar-expand-lg" data-bs-theme="dark" style="background-color: #f36815;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">LOGGER PLC</a>
+          <div class="avatar">
+            <img
+              src="{% static 'logo.jpeg' %}"
+              alt="Avatar"
+              width="50"
+              height="50"
+              style="border-radius: 50%"
+            />
+          </div>
+          <p>   </p>
+          <a class="navbar-brand" style="margin-left: 20px;"  href="{% url 'dashboard' %}">  CMI Corporación Multi Inversiones</a>
           <button
             class="navbar-toggler"
             type="button"
